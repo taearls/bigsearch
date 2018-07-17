@@ -1,9 +1,11 @@
+
+// COLOR VARIABLES
+$light-red: lighten(red, 20%);
+$grey: lighten(#222, 10%);
+
 body {
-  background: lighten(red, 20%);
-  height: 100%;
-  width: 100%;
-  margin: 0;
-  padding: 0;
+  box-sizing: border-box; 
+  background-color: $light-red;
   font-family: sans-serif;
 }
 
@@ -11,17 +13,27 @@ body {
   text-align: center;
 }
 
+.header {
+  background-color: $light-red;
+  height: 15vh;
+  color: lighten(blue, 15%);
+}
+.footer {
+  background-color: $light-red;
+  height: 10vh;
+  color: lighten(blue, 15%);
+}
+
+.content {
+  background-color: $grey;
+  height: 70vh;
+  color: white;
+}
+
 .logo {
   animation: App-logo-spin infinite 2s linear;
   height: 80px;
   padding-top: 80px;
-}
-
-.header {
-  background-color: lighten(#222, 10%);
-  height: 300px;
-  padding: 20px;
-  color: white;
 }
 
 @keyframes App-logo-spin {
