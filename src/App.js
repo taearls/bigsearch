@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import styles from './App.scss';
 
-import MovieContainer from './MovieContainer';
+import Header from './containers/Header';
+import Footer from './containers/Footer';
+import Content from './containers/Content';
+import Errors from './containers/Errors';
 
 class App extends Component {
 
@@ -11,7 +13,8 @@ class App extends Component {
     this.state = {
       apiKey: '974778d7', // personal API key activated from omdbapi.com
       domain: 'localhost:3000', // will eventually be a heroku url
-      selectedMovie: {}
+      selectedMovie: {},
+      showingError: false
     }
   }
 
@@ -52,18 +55,32 @@ class App extends Component {
     }
   }
 
-  errorMessage = (movieTitle) => {
-    console.log(movieTitle, "is not found.");
+  errorMessage = () => {
+    const movieTitle = this.state.selectedMovie.title;
+    const errorMessage = movieTitle + "is not found.";
+    return errorMessage;
   }
 
   render() {
-    // this.getMovie('Shrek');
+
+    this.getMovie('Shrek');
     // console.log(this.getMovie('Finding Nemo'));
-    return (
-      <div className={styles.app}>
-        <MovieContainer />
-      </div>
-    );
+    if (!this.state.showingError) {
+      return (
+        <div className={styles.app}>
+          <Header title={this.state.selectedMovie.title} />
+          <Content movie={this.state.selectedMovie} />
+          <Footer movie={this.state.selectedMovie} />
+        </div>
+      );
+    } else {
+      return (
+        <div className={styles.app}>
+          <Errors errorMessage={this.errorMessage} />
+        </div>
+      );
+    }
+    
   }
 }
 

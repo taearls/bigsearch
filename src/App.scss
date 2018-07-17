@@ -7,10 +7,13 @@ body {
   box-sizing: border-box; 
   background-color: $light-red;
   font-family: sans-serif;
+  * {
+    text-align: center;
+  }
 }
 
 .app {
-  text-align: center;
+
 }
 
 .header {
@@ -29,14 +32,12 @@ body {
   height: 70vh;
   color: white;
 }
-
-.logo {
-  animation: App-logo-spin infinite 2s linear;
-  height: 80px;
-  padding-top: 80px;
+.poster {
+  max-width: 50vw;
+  max-height: 50vh;
+  float: left;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.errors {
+  color: white;
 }
