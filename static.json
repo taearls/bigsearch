@@ -4,9 +4,12 @@
   "routes": {
     "/**": "index.html"
   },
-  "proxies": {
-    "/api/": {
-      "origin": "http://www.omdbapi.com"
+  "proxy": {
+    "/api": {
+      "target": "http://localhost:8000",
+      "pathRewrite": {
+        "^/api": "/"
+      }
     }
   }
 }
