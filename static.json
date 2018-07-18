@@ -1,12 +1,12 @@
 {
   "root": "build/",
-  "https_only": true,
+  "clean_urls": false,
   "routes": {
     "/**": "index.html"
   },
-  "proxy": {
-    "/": {
-      "target": "https://bigsearch.herokuapp.com"
-    }
-  }
+  // "proxy": {
+  //   "/": {
+  //     "target": "https://bigsearch.herokuapp.com"
+  //   }
+  // }
 }
