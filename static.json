@@ -6,7 +6,7 @@
   },
   "proxy": {
     "/api": {
-      "target": "http://www.omdbapi.com",
+      "target": "https://bigsearch.herokuapp.com",
       "pathRewrite": {
         "^/api": "/"
       }
