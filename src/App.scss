@@ -38,7 +38,7 @@ body {
   background-color: $grey;
   height: 70vh;
   color: white;
-  margin-top: 0;
+  padding-top: 5px;
 }
 .title {
   color: white;
@@ -54,11 +54,6 @@ body {
     content: "";
     clear: both;
     display: table;
-  }
-}
-.cursor {
-  &:hover {
-    // cursor: url(./images/cursor.png), pointer;
   }
 }
 .poster {
