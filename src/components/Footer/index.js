@@ -5,10 +5,9 @@ export default class Footer extends Component {
 
   render() {
     return (
-
       <div className={styles.footer}>
-        <p> Search by typing the movie title in the URL. </p>
-        <p> Example: {this.props.domain}/big </p>
+        <h3> Search by typing the movie title in the URL. </h3>
+        <h3> Example: {this.props.domain}/big </h3>
       </div>
     )
   }

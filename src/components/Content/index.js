@@ -15,18 +15,20 @@ export default class Content extends Component {
             src={movie.poster} 
             alt={movie.title} 
           />
-          <p> Directed By: {movie.director} </p>
+          <p> <b>Directed By:</b> {movie.director} </p>
         </div>
         <div>
-          <p> Genre: {movie.genre} </p>
-          <p> Starring: {movie.actors} </p>
-          <p> Plot: {movie.plot} </p>
-          <p> <strong>Ratings:</strong> <br/>
+          <h1 className={styles.warning}> {this.props.errorMessage.toUpperCase()} </h1>
+          <p> <b>Genre:</b> {movie.genre} </p>
+          <p> <b>Starring:</b> {movie.actors} </p>
+          <p> <b>Plot:</b> {movie.plot} </p>
+          <p> <b>Ratings:</b> <br/>
               IMDB: {movie.IMDB} <br/>
               Rotten Tomatoes: {movie.RottenTomatoes} <br/>
               Metacritic: {movie.Metacritic} 
           </p>
-          <p> Awards: {movie.awards} </p>
+          <p> <b>Awards:</b> {movie.awards} </p>
+
         </div>
       </div>
     )

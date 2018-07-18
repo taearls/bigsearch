@@ -1,13 +1,17 @@
+@import url('https://fonts.googleapis.com/css?family=Exo+2');
+
+$font: 'Exo 2';
 
 // COLOR VARIABLES
 $light-red: lighten(red, 20%);
 $grey: lighten(#222, 10%);
 $blue: lighten(blue, 15%);
+$warning: #FF2300;
 
 body {
   box-sizing: border-box; 
   background-color: $light-red;
-  font-family: sans-serif;
+  font-family: $font;
   * {
     text-align: center;
   }
@@ -19,14 +23,14 @@ body {
   }
 }
 
-.app {
-
-}
-
 .header {
   background-color: $light-red;
   height: 15vh;
   color: $blue;
+}
+.warning {
+  color: $warning;
+  
 }
 .footer {
   background-color: $light-red;
@@ -60,7 +64,4 @@ body {
   height: 50vh;
   width: 240px;
   text-align: center;
-}
-.errors {
-  color: white;
 }
