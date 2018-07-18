@@ -10,7 +10,7 @@ export default class App extends Component {
     super();
     this.state = {
       apiKey: '974778d7', // personal API key activated from omdbapi.com
-      domain: 'localhost:3000', // will eventually be a heroku url
+      domain: 'https://bigsearch.herokuapp.com', // will eventually be a heroku url
       selectedMovie: {},
       errorMessage: ''
     }
