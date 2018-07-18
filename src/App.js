@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import styles from './App.scss';
 
-import Header from './containers/Header';
-import Footer from './containers/Footer';
-import Content from './containers/Content';
-import Errors from './containers/Errors';
+import Content from './components/Content';
+import Errors from './components/Errors';
+import Footer from './components/Footer';
+import Header from './components/Header';
 
-class App extends Component {
+export default class App extends Component {
 
   constructor() {
     super();
@@ -17,7 +17,6 @@ class App extends Component {
       showingError: false
     }
   }
-
   getMovie = async (movieTitle) => {
     const search = await fetch('http://www.omdbapi.com/?t=' + movieTitle + '&apiKey=' + this.state.apiKey);
     const searchJson = await search.json();
@@ -36,17 +35,17 @@ class App extends Component {
           actors: searchJson.Actors,
           director: searchJson.Director,
           production: searchJson.Production,
-          ratings: {
-            "IMDB": {
-              score: "IMDB: " + searchJson.Ratings[0].Value
-            },
-            "Rotten Tomatoes": {
-              score: "Rotten Tomatoes: " + searchJson.Ratings[1].Value
-            },
-            "Metacritic": {
-              score: "Metacritic: " + searchJson.Ratings[2].Value
-            }
-          }
+          // ratings: {
+          //   "IMDB": {
+          //     score: "IMDB: " + searchJson.Ratings[0].Value
+          //   },
+          //   "Rotten Tomatoes": {
+          //     score: "Rotten Tomatoes: " + searchJson.Ratings[1].Value
+          //   },
+          //   "Metacritic": {
+          //     score: "Metacritic: " + searchJson.Ratings[2].Value
+          //   }
+          // }
         }
       });
     } else {
@@ -61,14 +60,22 @@ class App extends Component {
   }
 
   render() {
-    this.getMovie('Finding Nemo');
+    const movie = this.state.selectedMovie;
+    const searchedMovie = this.props.match.params.movie;
+    
+    // sets the movie big as the default when no movie is queried in URL
+    if (!searchedMovie) {
+      this.getMovie('big');
+    } else {
+      this.getMovie(searchedMovie);
+    }
+
     if (!this.state.showingError) {
       return (
-        <div className={styles.app}>
-          <Header title={this.state.selectedMovie.title} 
-            getMovie={this.getMovie} />
-          <Content movie={this.state.selectedMovie} />
-          <Footer movie={this.state.selectedMovie} />
+        <div>
+          <Header getMovie={this.getMovie} />
+          <Content movie={movie} />
+          <Footer />
         </div>
       );
     } else {
@@ -81,5 +88,3 @@ class App extends Component {
     
   }
 }
-
-export default App;
