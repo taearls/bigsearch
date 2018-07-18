@@ -2,6 +2,7 @@
 // COLOR VARIABLES
 $light-red: lighten(red, 20%);
 $grey: lighten(#222, 10%);
+$blue: lighten(blue, 15%);
 
 body {
   box-sizing: border-box; 
@@ -9,6 +10,9 @@ body {
   font-family: sans-serif;
   * {
     text-align: center;
+  }
+  h3 {
+    margin: 0;
   }
 }
 
@@ -19,25 +23,46 @@ body {
 .header {
   background-color: $light-red;
   height: 15vh;
-  color: lighten(blue, 15%);
+  color: $blue;
 }
 .footer {
   background-color: $light-red;
   height: 10vh;
-  color: lighten(blue, 15%);
+  color: $blue;
 }
 
 .content {
   background-color: $grey;
   height: 70vh;
   color: white;
+  margin-top: 0;
+}
+.title {
+  color: white;
+  text-align: center;
+}
+.posterContainer {
+  width: 240px;
+  height: 70vh;
+  margin-left: 5px;
+  margin-right: 5px;
+  float: left;
+  .posterContainer::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+}
+.cursor {
+  &:hover {
+    // cursor: url(./images/cursor.png), pointer;
+  }
 }
 .poster {
-  max-width: 50vw;
-  max-height: 50vh;
-  float: left;
+  height: 50vh;
+  width: 240px;
+  text-align: center;
 }
-
 .errors {
   color: white;
 }

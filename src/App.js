@@ -19,7 +19,6 @@ class App extends Component {
   }
 
   getMovie = async (movieTitle) => {
-    // convert spaces in movieTitle to + signs
     const search = await fetch('http://www.omdbapi.com/?t=' + movieTitle + '&apiKey=' + this.state.apiKey);
     const searchJson = await search.json();
     if (searchJson.Response === "True") {
@@ -35,6 +34,7 @@ class App extends Component {
           website: searchJson.Website,
           awards: searchJson.Awards,
           actors: searchJson.Actors,
+          director: searchJson.Director,
           production: searchJson.Production,
           ratings: {
             "IMDB": {
@@ -49,7 +49,6 @@ class App extends Component {
           }
         }
       });
-      console.log(this.state.selectedMovie);
     } else {
       this.errorMessage(movieTitle);
     }
@@ -62,13 +61,12 @@ class App extends Component {
   }
 
   render() {
-
-    this.getMovie('Shrek');
-    // console.log(this.getMovie('Finding Nemo'));
+    this.getMovie('Finding Nemo');
     if (!this.state.showingError) {
       return (
         <div className={styles.app}>
-          <Header title={this.state.selectedMovie.title} />
+          <Header title={this.state.selectedMovie.title} 
+            getMovie={this.getMovie} />
           <Content movie={this.state.selectedMovie} />
           <Footer movie={this.state.selectedMovie} />
         </div>
