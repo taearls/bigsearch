@@ -6,7 +6,7 @@
   },
   "proxy": {
     "/api": {
-      "target": "http://localhost:8000",
+      "target": "http://www.omdbapi.com",
       "pathRewrite": {
         "^/api": "/"
       }
