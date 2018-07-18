@@ -4,5 +4,9 @@
   "routes": {
     "/**": "index.html"
   },
-  "proxy": "https://bigsearch.herokuapp.com"
+  "proxy": {
+    "/": {
+      "target": "https://bigsearch.herokuapp.com"
+    }
+  }
 }
