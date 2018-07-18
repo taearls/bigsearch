@@ -2,7 +2,10 @@
 
 $font: 'Exo 2';
 
-// COLOR VARIABLES
+$break-lg: 470px;
+$break-md: 413px;
+$break-sm: 372px;
+
 $light-red: lighten(red, 20%);
 $grey: lighten(#222, 10%);
 $blue: lighten(blue, 15%);
@@ -11,7 +14,7 @@ $warning: #FF2300;
 body {
   box-sizing: border-box; 
   background-color: $light-red;
-  font-family: $font;
+  font-family: $font, 'sans-sarif';
   * {
     text-align: center;
   }
@@ -23,21 +26,36 @@ body {
   }
 }
 
+// MEDIA QUERIES
+
+h2 {
+  @media screen and (max-width: $break-lg) {
+    font-size: 20px;
+  }
+  @media screen and (max-width: $break-md) {
+    font-size: 17px;
+  }
+}
+
+p {
+  @media screen and (max-width: $break-md) {
+    font-size: 14px;
+  }
+  @media screen and (max-width: $break-sm) {
+    font-size: 11px;
+  }
+}
+
 .header {
   background-color: $light-red;
   height: 15vh;
   color: $blue;
-}
-.warning {
-  color: $warning;
-  
 }
 .footer {
   background-color: $light-red;
   height: 10vh;
   color: $blue;
 }
-
 .content {
   background-color: $grey;
   height: 70vh;
@@ -64,4 +82,7 @@ body {
   height: 50vh;
   width: 240px;
   text-align: center;
+}
+.warning {
+  color: $warning;
 }
