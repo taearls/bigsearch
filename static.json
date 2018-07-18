@@ -4,12 +4,5 @@
   "routes": {
     "/**": "index.html"
   },
-  "proxy": {
-    "/api": {
-      "target": "https://bigsearch.herokuapp.com",
-      "pathRewrite": {
-        "^/api": "/"
-      }
-    }
-  }
+  "proxy": "https://bigsearch.herokuapp.com"
 }
