@@ -1,9 +1,9 @@
-# Upshot Coding Challenge 
+# BigSearch
 Basic movie app using the OMDB API to set up RESTful routes.
 
 ## Set up:
 ~~~~
-git clone https://github.com/tboneearls/upshot-challenge.git
+git clone https://github.com/tboneearls/bigsearch.git
 npm install
 npm start
 ~~~~
