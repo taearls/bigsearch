@@ -16,7 +16,7 @@ export default class App extends Component {
     }
   }
   getMovie = async (movieTitle) => {
-    const search = await fetch('http://www.omdbapi.com/?t=' + movieTitle + '&apiKey=' + this.state.apiKey);
+    const search = await fetch('https://www.omdbapi.com/?t=' + movieTitle + '&apiKey=' + this.state.apiKey);
     const searchJson = await search.json();
     if (searchJson.Response === "True") {
       this.setState({
