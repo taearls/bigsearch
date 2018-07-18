@@ -24,7 +24,6 @@ export default class App extends Component {
           title: searchJson.Title,
           rated: searchJson.Rated,
           year: searchJson.Year,
-          runtime: searchJson.Runtime,
           genre: searchJson.Genre,
           plot: searchJson.Plot,
           poster: searchJson.Poster,
