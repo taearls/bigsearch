@@ -3,10 +3,5 @@
   "clean_urls": false,
   "routes": {
     "/**": "index.html"
-  },
-  "proxy": {
-    "/": {
-      "target": "localhost:4000"
-    }
   }
 }
