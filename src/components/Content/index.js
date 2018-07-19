@@ -15,7 +15,7 @@ export default class Content extends Component {
             src={movie.poster} 
             alt={movie.title} 
           />
-          <p> <b>Directed By:</b> {movie.director} </p>
+          <h3> <b>Directed By:</b> {movie.director} </h3>
         </div>
         <div>
           <h1 className={styles.warning}> {this.props.errorMessage.toUpperCase()} </h1>
