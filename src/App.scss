@@ -2,6 +2,7 @@
 
 $font: 'Exo 2';
 
+$break-xl: 900px;
 $break-lg: 470px;
 $break-md: 413px;
 $break-sm: 372px;
@@ -29,6 +30,9 @@ body {
 // MEDIA QUERIES
 
 h2 {
+  @media screen and (min-width: $break-xl) {
+    font-size: 30px;
+  }
   @media screen and (max-width: $break-lg) {
     font-size: 20px;
   }
@@ -38,11 +42,20 @@ h2 {
 }
 
 p {
+  @media screen and (min-width: $break-xl) {
+    font-size: 20px;
+  }
   @media screen and (max-width: $break-md) {
     font-size: 14px;
   }
   @media screen and (max-width: $break-sm) {
     font-size: 11px;
+  }
+}
+
+h3 {
+  @media screen and (min-width: $break-xl) {
+    font-size: 22px;
   }
 }
 
