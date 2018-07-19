@@ -29,9 +29,18 @@ body {
 
 // MEDIA QUERIES
 
+h1 {
+  @media screen and (min-width: $break-xl) {
+    font-size: 38px;
+    margin-top: 20px;
+  }
+}
+
 h2 {
   @media screen and (min-width: $break-xl) {
     font-size: 30px;
+    margin-top: 20px;
+    padding-bottom: 5px;
   }
   @media screen and (max-width: $break-lg) {
     font-size: 20px;

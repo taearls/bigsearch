@@ -20,6 +20,7 @@ export default class App extends Component {
     const searchJson = await search.json();
     if (searchJson.Response === "True") {
       this.setState({
+        errorMessage: '',
         selectedMovie: {
           title: searchJson.Title,
           rated: searchJson.Rated,
@@ -45,7 +46,6 @@ export default class App extends Component {
   render() {
     const searchedMovie = this.props.match.params.movie;
     const movie = this.state.selectedMovie;
-    // console.log(this.state.errorMessage, " this is the error message");
 
     // sets the movie big as the default when no movie is queried in URL
     if (!searchedMovie) {
@@ -56,8 +56,10 @@ export default class App extends Component {
 
     return (
       <div>
-        <Header getMovie={this.getMovie} />
-        <Content movie={movie} errorMessage={this.state.errorMessage} />
+        <Header />
+        <Content movie={movie} 
+          errorMessage={this.state.errorMessage} 
+          getMovie={this.getMovie} />
         <Footer domain={this.state.domain} />
       </div>
     );
