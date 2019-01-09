@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 
-import Content from './components/Content';
-import Footer from './components/Footer';
 import Header from './components/Header';
+import Content from './components/Content';
 
 export default class App extends Component {
 
@@ -10,7 +9,7 @@ export default class App extends Component {
     super();
     this.state = {
       apiKey: '974778d7', // personal API key activated from omdbapi.com
-      domain: 'https://bigsearch.herokuapp.com', // will eventually be a heroku url
+      domain: 'https://bigsearch.herokuapp.com',
       selectedMovie: {},
       errorMessage: ''
     }
@@ -32,10 +31,12 @@ export default class App extends Component {
           actors: searchJson.Actors,
           director: searchJson.Director,
           IMDB: searchJson.Ratings[0].Value,
-          RottenTomatoes: searchJson.Ratings[1].Value,
-          Metacritic: searchJson.Ratings[2].Value
+          RottenTomatoes: searchJson.Ratings.length > 1 ? searchJson.Ratings[1].Value : "N/A",
+          Metacritic: searchJson.Ratings.length > 2 ? searchJson.Ratings[2].Value : "N/A"
         }
       });
+      window.history.pushState({urlPath: '/' + movieTitle}, null, "/" + movieTitle);
+      // this.props.match.params.movie = movieTitle;
     } else {
       this.setState({
         errorMessage: movieTitle + " was not found."
@@ -43,24 +44,26 @@ export default class App extends Component {
     }
   }
 
-  render() {
+  componentDidMount() {
     const searchedMovie = this.props.match.params.movie;
-    const movie = this.state.selectedMovie;
-
-    // sets the movie big as the default when no movie is queried in URL
-    if (!searchedMovie) {
+    if (searchedMovie === undefined || searchedMovie === null) {
       this.getMovie('big');
     } else {
       this.getMovie(searchedMovie);
     }
+  }
+
+  render() {
+    const movie = this.state.selectedMovie;
 
     return (
       <div>
-        <Header />
-        <Content movie={movie} 
-          errorMessage={this.state.errorMessage} 
-          getMovie={this.getMovie} />
-        <Footer domain={this.state.domain} />
+        <Header 
+          domain={this.state.domain} 
+          getMovie={this.getMovie}/>
+        <Content 
+          movie={movie} 
+          errorMessage={this.state.errorMessage} />
       </div>
     );
     
