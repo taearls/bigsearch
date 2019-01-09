@@ -21,9 +21,9 @@ export default class Header extends Component {
     return (
       <div className={styles.header}>
         <h1>BigSearch</h1>
-        <h2>Search your favorite movie (that isn't Big):</h2>
-        <input onBlur={this.handleBlur} type="text" placeholder="Search Movie"/>
-        <button onClick={this.handleSearch}>Search Movie</button>
+        <h2>Search your favorite movie below (that isn't Big!):</h2>
+        <input onBlur={this.handleBlur} type="text" placeholder="Type Movie..."/>
+        <button onClick={this.handleSearch}>Search</button>
       </div>
     )
   }
