@@ -47,7 +47,6 @@ button {
   cursor: pointer;
   color: white;
   margin-left: 15px;
-  // border: 1px solid $blue;
   &:hover {
     background-color: red;
     transition: 0.5s ease;
@@ -60,6 +59,9 @@ input {
   &:focus {
     border-color: $blue;
   }
+}
+img {
+  height: initial;
 }
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
   color: white;
@@ -91,8 +93,8 @@ input {
   .posterContainer {
     width: 240px;
     height: 100%;
-    margin-left: 5px;
-    margin-right: 5px;
+    margin-left: 7.5px;
+    margin-right: 7.5px;
     float: left;
     .posterContainer::after {
       content: "";
@@ -114,7 +116,6 @@ input {
 @media screen and (min-width: $break-xl) {
   h1 {
     font-size: 38px;
-    // margin-top: 20px;
   }
   h2 {
     font-size: 30px;
@@ -134,6 +135,9 @@ input {
 @media screen and (max-width: $break-md) {
   h2 {
     font-size: 17px;
+  }
+  h3 {
+    font-size: 14px;
   }
   p {
     font-size: 14px;
